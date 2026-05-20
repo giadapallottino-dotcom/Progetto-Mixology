@@ -124,20 +124,21 @@ button {
 
 .main-content {
     flex: 1;
-    padding: 40px;
+    padding: 40px 60px;
+    background-color: #0d2c26;
 }
 
 .griglia-cocktail {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
     gap: 24px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .card-cocktail {
-    background: #0a241f;
-    border: 1px solid #c9aa5f;
-    border-radius: 8px;
+    background: #071f1a;
+    border: 1px solid rgba(201, 170, 95, 0.3);
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     display: flex;
@@ -151,9 +152,17 @@ button {
 }
 
 .card-cocktail h3 {
-    padding: 12px;
-    text-align: center;
-    font-size: 1rem;
+    padding: 16px 16px 4px 16px;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #e6dccf;
+}
+
+.card-cocktail p {
+    padding: 0 16px 16px 16px;
+    font-size: 0.8rem;
+    color: rgba(230, 220, 207, 0.6); 
+    text-align: left;   
 }
 
 .finestra-ricetta {
