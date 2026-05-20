@@ -7,85 +7,82 @@
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <header>
-    <a href="index.html" class="logo">  
-        <img src="assets/images/logo.png" alt="Mixology Lounge Logo">
-        <span>Mixology Lounge</span>
-    </a>
-    <input type="text" id="search" placeholder="Cerca cocktail...">
-</header>
 
-<aside id="barra-filtri">
-    <div id="box-attivi">
-        <div id="filtri-attivi"></div>
-        <button id="pulisci-filtri">Pulisci filtri</button>
-    </div>
+    <header class="header">
+        <a href="index.html" class="logo">  
+            <img src="assets/images/logo.png" alt="Mixology Lounge Logo">
+            <span>Mixology Lounge</span>
+        </a>
+        <input type="text" id="search" class="cerca-cocktail" placeholder="Cerca cocktail...">
+    </header>
 
-    <div id="box-ingrediente">
-        <label>Cerca ingrediente</label>
-        <input type="text" id="cerca-ingrediente" placeholder="es. lime, gin, menta...">
-        <button id="aggiungi-ingrediente">+</button>
-    </div>
+    <div class="main-layout">
 
-    <div id="box-tipo">
-        <label>Tipo</label>
-        <button id="bottone-alcolici">Alcolici</button>
-        <button id="bottone-analcolici">Analcolici</button>
-    </div>
+        <aside id="barra-filtri" class="sidebar">
+            <div id="box-attivi">
+                <div id="filtri-attivi"></div>
+                <button id="pulisci-filtri" class="pulisci-filtri">Pulisci filtri</button>
+            </div>
 
-    <div id="box-difficolta">
-        <label>Difficoltà</label>
-        <select id="seleziona-difficolta">
-            <option value="">Tutte</option>
-            <option value="Facile">Facile</option>
-            <option value="Media">Media</option>
-            <option value="Difficile">Difficile</option>
-        </select>
-    </div>
+            <div id="box-ingrediente">
+                <label class="filter-label">Cerca ingrediente</label>
+                <input type="text" id="cerca-ingrediente" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
+                <button id="aggiungi-ingrediente">+</button>
+            </div>
 
-    <div id="box-gusto">
-        <label>Gusto</label>
-        <select id="seleziona-gusto">
-            <option value="">Tutti</option>
-            <option value="secco">Secco</option>
-            <option value="sapido">Sapido</option>
-            <option value="agrumato">Agrumato</option>
-            <option value="dolce">Dolce</option>
-            <option value="fruttato">Fruttato</option>
-            <option value="speziato">Speziato</option>
-            <option value="erbaceo">Erbaceo</option>
-            <option value="amaro">Amaro</option>
-            <option value="floreale">Floreale</option>
-        </select>
-    </div>
-</aside>
+            <div id="box-tipo">
+                <label class="filter-label">Tipo</label>
+                <button id="bottone-alcolici" class="bottone-alcolici">Alcolici</button>
+                <button id="bottone-analcolici" class="bottone-analcolici">Analcolici</button>
+            </div>
 
-<main id="contenuto">
-    <h2 id="titolo-pagina">I Nostri Cocktail</h2>
-    <div id="griglia-cocktail"></div>
-</main>
+            <div id="box-difficolta">
+                <label class="filter-label">Difficoltà</label>
+                <select id="seleziona-difficolta" class="seleziona-difficolta">
+                    <option value="">Tutte</option>
+                    <option value="Facile">Facile</option>
+                    <option value="Media">Media</option>
+                    <option value="Difficile">Difficile</option>
+                </select>
+            </div>
 
-<div id="modale-ricetta">
-    
-    <div id="contenuto-modale">
-        <button id="chiudi-modale">x</button>
+            <div id="box-gusto">
+                <label class="filter-label">Gusto</label>
+                <select id="seleziona-gusto" class="seleziona-gusto">
+                    <option value="">Tutti</option>
+                    <option value="secco">Secco</option>
+                    <option value="sapido">Sapido</option>
+                    <option value="agrumato">Agrumato</option>
+                    <option value="dolce">Dolce</option>
+                    <option value="fruttato">Fruttato</option>
+                    <option value="speziato">Speziato</option>
+                    <option value="erbaceo">Erbaceo</option>
+                    <option value="amaro">Amaro</option>
+                    <option value="floreale">Floreale</option>
+                </select>
+            </div>
+        </aside>
 
-        <img id="foto-cocktail" src="" alt="">
+        <main id="contenuto" class="main-content">
+            <h2 id="titolo-pagina">I Nostri Cocktail</h2>
+            <div id="griglia-cocktail" class="griglia-cocktail"></div>
+        </main>
 
-        <div id="info-cocktail">
-            <h2 id="titolo-cocktail"></h2>
-            
-            <h3>Ingredienti</h3>
-            <ul id="lista-ingredienti"></ul>
-            
-            <h3>Preparazione</h3>
-            <p id="testo-preparazione"></p>
+    </div> <div id="finestra-ricetta">
+        <div id="contenuto-finestra">
+            <button id="chiudi-finestra">x</button>
+            <img id="foto-cocktail" src="" alt="">
+            <div id="info-cocktail">
+                <h2 id="titolo-cocktail"></h2>
+                <h3>Ingredienti</h3>
+                <ul id="lista-ingredienti"></ul>
+                <h3>Preparazione</h3>
+                <p id="testo-preparazione"></p>
+            </div>
         </div>
     </div>
 
-</div>
-
-<script src="assets/js/cocktails.js"></script>
-<script src="assets/js/app.js"></script>
+    <script src="assets/js/cocktails.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
