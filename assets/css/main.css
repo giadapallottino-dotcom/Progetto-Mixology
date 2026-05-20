@@ -28,13 +28,14 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 72px;
+    height: 80px;
     background-color: #0a241f;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 60px;
     z-index: 1000;
+    border-bottom: 1px solid rgba(201, 170, 95, 0.2);;
 }
 
 .logo {
@@ -53,9 +54,12 @@ button {
 }
 
 .cerca-cocktail {
-    padding: 8px 16px;
-    width: 260px;
-    border-radius: 20px;
+    background: #14352f;
+    border: 1px solid rgba(201, 170, 95, 0.2);
+    padding: 10px 24px;
+    width: 320px;
+    border-radius: 30px;
+    color: #e6dccf;
 }
 
 .main-layout {
