@@ -28,7 +28,7 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 72px;
     background-color: #0a241f;
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@ button {
 
 .cerca-cocktail {
     background: #14352f;
-    border: 1px solid rgba(201, 170, 95, 0.2);
+    border: 1px solid rgba(201, 170, 95, 0.3);
     padding: 10px 24px;
     width: 320px;
     border-radius: 30px;
@@ -70,13 +70,15 @@ button {
 }
 
 .sidebar {
-    width: 280px;
-    min-width: 280px;
+    width: 300px;
+    height: calc(100vh - 72px);
+    min-width: 300px;
     background-color: #0a241f;
-    padding: 24px;
+    border-right: 1px solid rgba(201, 170, 95, 0.2);
+    padding: 40px 24px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
 .filter-label {
@@ -89,18 +91,21 @@ button {
 .cerca-ingrediente, 
 .seleziona-difficolta, 
 .seleziona-gusto,
+.bottone-alcolici,
+.bottone-analcolici
 .pulisci-filtri {
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 6px;
+    background: #14352f;
+    border: 1px solid rgba(201, 170, 95, 0.3);
+    padding: 10px 16px;
+    border-radius: 20px;
+    color: #e6dccf;
 }
 
 .bottone-alcolici, 
 .bottone-analcolici {
-    width: 48%;
-    padding: 8px 0;
-    border-radius: 6px;
+    width: 47%;
     display: inline-block;
+    text-align: center;
 }
 
 .attivo {

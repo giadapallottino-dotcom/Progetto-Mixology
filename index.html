@@ -18,27 +18,32 @@
 
     <div class="main-layout">
 
-        <aside id="barra-filtri" class="sidebar">
-            <div id="box-attivi">
-                <div id="filtri-attivi"></div>
-                <button id="pulisci-filtri" class="pulisci-filtri">Pulisci filtri</button>
+        <aside class="sidebar">
+    
+            <div class="box-filtri">
+                <div class="filtri-attivi"></div>
+                <button class="pulisci-filtri">Pulisci filtri</button>
             </div>
 
-            <div id="box-ingrediente">
+            <div class="box-ingrediente-flex">
                 <label class="filter-label">Cerca ingrediente</label>
-                <input type="text" id="cerca-ingrediente" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
-                <button id="aggiungi-ingrediente">+</button>
+                <div class="input-piu-container">
+                    <input type="text" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
+                    <button class="bottone-piu">+</button>
+                </div>
             </div>
 
-            <div id="box-tipo">
+            <div class="box-tipo">
                 <label class="filter-label">Tipo</label>
-                <button id="bottone-alcolici" class="bottone-alcolici">Alcolici</button>
-                <button id="bottone-analcolici" class="bottone-analcolici">Analcolici</button>
+                <div class="bottoni-tipo-container">
+                    <button class="bottone-alcolici">Alcolici</button>
+                     <button class="bottone-analcolici">Analcolici</button>
+                </div>
             </div>
 
-            <div id="box-difficolta">
+            <div class="box-difficolta">
                 <label class="filter-label">Difficoltà</label>
-                <select id="seleziona-difficolta" class="seleziona-difficolta">
+                <select class="seleziona-difficolta">
                     <option value="">Tutte</option>
                     <option value="Facile">Facile</option>
                     <option value="Media">Media</option>
@@ -46,9 +51,9 @@
                 </select>
             </div>
 
-            <div id="box-gusto">
+            <div class="box-gusto">
                 <label class="filter-label">Gusto</label>
-                <select id="seleziona-gusto" class="seleziona-gusto">
+                <select class="seleziona-gusto">
                     <option value="">Tutti</option>
                     <option value="secco">Secco</option>
                     <option value="sapido">Sapido</option>
