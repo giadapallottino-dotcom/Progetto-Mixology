@@ -13,7 +13,7 @@
             <img src="assets/images/logo.png" alt="Mixology Lounge Logo">
             <span>Mixology Lounge</span>
         </a>
-        <input type="text" id="search" class="cerca-cocktail" placeholder="Cerca cocktail...">
+        <input type="text" id="cerca-cocktail" class="cerca-cocktail" placeholder="Cerca cocktail...">
     </header>
 
     <div class="main-layout">
@@ -21,29 +21,29 @@
         <aside class="sidebar">
     
             <div class="box-filtri">
-                <div class="filtri-attivi"></div>
-                <button class="pulisci-filtri">Pulisci filtri</button>
+                <div id="filtri-attivi" class="filtri-attivi"></div>
+                <button id="pulisci-filtri" class="pulisci-filtri">Pulisci filtri</button>
             </div>
 
             <div class="box-ingrediente-flex">
                 <label class="filter-label">Cerca ingrediente</label>
                 <div class="input-piu-container">
-                    <input type="text" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
-                    <button class="bottone-piu">+</button>
+                    <input type="text" id="cerca-ingrediente" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
+                    <button id="aggiungi-ingrediente" class="bottone-piu">+</button>
                 </div>
             </div>
 
             <div class="box-tipo">
                 <label class="filter-label">Tipo</label>
                 <div class="bottoni-tipo-container">
-                    <button class="bottone-alcolici">Alcolici</button>
-                     <button class="bottone-analcolici">Analcolici</button>
+                    <button id="bottone-alcolici" class="bottone-alcolici">Alcolici</button>
+                    <button id="bottone-analcolici" class="bottone-analcolici">Analcolici</button>
                 </div>
             </div>
 
             <div class="box-difficolta">
                 <label class="filter-label">Difficoltà</label>
-                <select class="seleziona-difficolta">
+                <select id="seleziona-difficolta" class="seleziona-difficolta">
                     <option value="">Tutte</option>
                     <option value="Facile">Facile</option>
                     <option value="Media">Media</option>
@@ -53,7 +53,7 @@
 
             <div class="box-gusto">
                 <label class="filter-label">Gusto</label>
-                <select class="seleziona-gusto">
+                <select id="seleziona-gusto" class="seleziona-gusto">
                     <option value="">Tutti</option>
                     <option value="secco">Secco</option>
                     <option value="sapido">Sapido</option>
@@ -73,7 +73,9 @@
             <div id="griglia-cocktail" class="griglia-cocktail"></div>
         </main>
 
-    </div> <div id="finestra-ricetta">
+    </div> 
+    
+    <div id="finestra-ricetta">
         <div id="contenuto-finestra">
             <button id="chiudi-finestra">x</button>
             <img id="foto-cocktail" src="" alt="">

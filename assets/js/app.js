@@ -59,7 +59,7 @@ function mostraCocktail(lista) {
             for (let ingrediente of cocktail.ingredienti) {
                 listaIngredienti.innerHTML += `<li>${ingrediente}</li>`;
             }
-            document.getElementById('modale-ricetta').style.display = "block"; //Apre la finestra
+            document.getElementById('finestra-ricetta').style.display = "block"; //Apre la finestra
         });
         griglia.appendChild(card); // Aggiunge la card alla griglia
     }
@@ -68,3 +68,26 @@ function mostraCocktail(lista) {
 document.getElementById('chiudi-finestra').addEventListener('click', () => {
     document.getElementById('finestra-ricetta').style.display = "none"; //Chiude la finestra
 });
+
+// Funzione che filtra i cocktails per nome
+function filtraCocktails() {
+    let risultati = [];
+
+    for (let cocktail of cocktailsDatabase) {
+        let nomeCocktail = cocktail.nome.toLowerCase();
+        let testoCercato = statoFiltri.nome.toLowerCase();
+
+        if (nomeCocktail.includes(testoCercato)) {
+            risultati.push(cocktail);
+        }
+    }
+    mostraCocktail(risultati);
+}
+
+// Evento che registra le ricerche 
+inputRicerca.addEventListener('input', () => {
+    statoFiltri.nome = inputRicerca.value;
+    filtraCocktails();
+});
+
+filtraCocktails();
