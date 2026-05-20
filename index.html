@@ -4,7 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mixology Lounge - Cocktail Database</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+    <header>
+    <a href="index.html" class="logo">  
+        <img src="assets/images/logo.png" alt="Mixology Lounge Logo">
+        <span>Mixology Lounge</span>
+    </a>
+    <input type="text" id="search" placeholder="Cerca cocktail...">
+</header>
+
+<aside id="barra-filtri">
+    <div id="box-attivi">
+        <div id="filtri-attivi"></div>
+        <button id="pulisci-filtri">Pulisci filtri</button>
+    </div>
+
+    <div id="box-ingrediente">
+        <label>Cerca ingrediente</label>
+        <input type="text" id="cerca-ingrediente" placeholder="es. lime, gin, menta...">
+        <button id="aggiungi-ingrediente">+</button>
+    </div>
+
+    <div id="box-tipo">
+        <label>Tipo</label>
+        <button id="bottone-alcolici">Alcolici</button>
+        <button id="bottone-analcolici">Analcolici</button>
+    </div>
+
+    <div id="box-difficolta">
+        <label>Difficoltà</label>
+        <select id="seleziona-difficolta">
+            <option value="">Tutte</option>
+            <option value="Facile">Facile</option>
+            <option value="Media">Media</option>
+            <option value="Difficile">Difficile</option>
+        </select>
+    </div>
+
+    <div id="box-gusto">
+        <label>Gusto</label>
+        <select id="seleziona-gusto">
+            <option value="">Tutti</option>
+            <option value="secco">Secco</option>
+            <option value="sapido">Sapido</option>
+            <option value="agrumato">Agrumato</option>
+            <option value="dolce">Dolce</option>
+            <option value="fruttato">Fruttato</option>
+            <option value="speziato">Speziato</option>
+            <option value="erbaceo">Erbaceo</option>
+            <option value="amaro">Amaro</option>
+            <option value="floreale">Floreale</option>
+        </select>
+    </div>
+</aside>
 </body>
 </html>
