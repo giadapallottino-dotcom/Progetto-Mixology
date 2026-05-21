@@ -69,25 +69,69 @@ document.getElementById('chiudi-finestra').addEventListener('click', () => {
     document.getElementById('finestra-ricetta').style.display = "none"; //Chiude la finestra
 });
 
-// Funzione che filtra i cocktails per nome
+// Funzione che filtra i cocktails
 function filtraCocktails() {
     let risultati = [];
 
     for (let cocktail of cocktailsDatabase) {
+
+        let check = true;
         let nomeCocktail = cocktail.nome.toLowerCase();
         let testoCercato = statoFiltri.nome.toLowerCase();
 
-        if (nomeCocktail.includes(testoCercato)) {
+        if (!nomeCocktail.includes(testoCercato)) {
+            check = false;
+        }
+
+        if (statoFiltri.difficolta !== "" && cocktail.difficolta !== statoFiltri.difficolta) {
+            check = false;
+        }
+
+        if (statoFiltri.gusto !== "" && cocktail.gusto !== statoFiltri.gusto) {
+            check = false;
+        }
+
+        if (statoFiltri.alcolico !== null && cocktail.alcolico !== statoFiltri.alcolico) {
+            check = false;
+        }
+
+        if(check === true){
             risultati.push(cocktail);
         }
     }
     mostraCocktail(risultati);
 }
 
-// Evento che registra le ricerche 
+// Evento che filtra la ricerca per nome 
 inputRicerca.addEventListener('input', () => {
     statoFiltri.nome = inputRicerca.value;
     filtraCocktails();
 });
+
+// Evento che filtra la difficolta
+selectDifficolta.addEventListener('change', () => {
+    statoFiltri.difficolta = selectDifficolta.value;
+    filtraCocktails();
+});
+
+// Evento che filtra il gusto
+selectGusto.addEventListener('change', () => {
+    statoFiltri.gusto = selectGusto.value;
+    filtraCocktails();
+});
+
+// Evento che filtra gli alcolici
+btnAlcolici.addEventListener('click', () => {
+    statoFiltri.alcolico = true;
+    filtraCocktails();
+});
+
+// Evento che filtra gli analcolici
+btnAnalcolici.addEventListener('click', () => {
+    statoFiltri.alcolico = false;
+    filtraCocktails();
+});
+
+
 
 filtraCocktails();
