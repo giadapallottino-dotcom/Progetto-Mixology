@@ -59,14 +59,14 @@ function mostraCocktail(lista) {
             for (let ingrediente of cocktail.ingredienti) {
                 listaIngredienti.innerHTML += `<li>${ingrediente}</li>`;
             }
-            document.getElementById('finestra-ricetta').style.display = "block"; //Apre la finestra
+            modale.classList.add('mostra-finestra');
         });
         griglia.appendChild(card); // Aggiunge la card alla griglia
     }
 }
 
 document.getElementById('chiudi-finestra').addEventListener('click', () => {
-    document.getElementById('finestra-ricetta').style.display = "none"; //Chiude la finestra
+    modale.classList.remove('mostra-finestra'); 
 });
 
 // Funzione che filtra i cocktails
