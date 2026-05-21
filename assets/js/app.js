@@ -156,6 +156,7 @@ function aggiornaGraficaFiltri() {
     }
 }
 
+// Evento che filtra per ingredienti
 btnAggiungiIngrediente.addEventListener('click', () => {
     let parolaScritta = inputIngrediente.value; 
 
@@ -166,6 +167,23 @@ btnAggiungiIngrediente.addEventListener('click', () => {
         aggiornaGraficaFiltri();
         filtraCocktails();
     }
+});
+
+// Evento che pulisce i filtri
+btnPulisci.addEventListener('click', () => {
+    statoFiltri.nome = "";
+    statoFiltri.ingredienti = [];
+    statoFiltri.alcolico = null;
+    statoFiltri.difficolta = "";
+    statoFiltri.gusto = "";
+
+    inputRicerca.value = "";
+    inputIngrediente.value = "";
+    selectDifficolta.value = "";
+    selectGusto.value = "";
+
+    aggiornaGraficaFiltri();
+    filtraCocktails();
 });
 
 filtraCocktails();
