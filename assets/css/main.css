@@ -49,7 +49,7 @@ button {
 }
 
 .logo img {
-    height: 40px;
+    height: 50px;
     width: auto;
 }
 
@@ -79,6 +79,38 @@ button {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    position: sticky;
+    top: 72px; 
+    overflow-y: auto;
+}
+
+.box-filtri {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+}
+
+.filtri-attivi {
+    display: flex;
+    flex-wrap: wrap;      
+    gap: 8px;             
+    width: 100%;  
+}
+
+.pulisci-filtri {
+    width: 100%;
+    display: block;
+    margin-top: 15px;      
+}
+
+.tag-ingrediente {
+    display: inline-flex;
+    align-items: center;
+    background-color: #11342d;  
+    border: 1px solid #b89a5a;    
+    color: #e6dccf;           
+    padding: 6px 14px;
+    border-radius: 20px;
 }
 
 .filter-label {
