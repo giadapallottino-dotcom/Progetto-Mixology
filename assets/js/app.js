@@ -148,11 +148,24 @@ btnAnalcolici.addEventListener('click', () => {
     filtraCocktails();
 });
 
-// Funzione che mostra gli ingredienti selezionati
+// Funzione che mostra gli ingredienti selezionati e permette di rimuoverli
 function aggiornaGraficaFiltri() {
     boxFiltriAttivi.innerHTML = ""; 
-    for (let ingrediente of statoFiltri.ingredienti) {
-        boxFiltriAttivi.innerHTML += `<span class="tag-ingrediente">${ingrediente}</span>`;
+
+    for (let i = 0; i < statoFiltri.ingredienti.length; i++) {
+        let ingrediente = statoFiltri.ingredienti[i];
+        
+        const tag = document.createElement('span');
+        tag.className = "tag-ingrediente"; 
+        tag.textContent = ingrediente;     
+        tag.addEventListener('click', () => {
+            statoFiltri.ingredienti.splice(i, 1); // Rimuove dall'array l'ingrediente cliccato (1 elemento alla posizione 'i')
+            
+            aggiornaGraficaFiltri();
+            filtraCocktails();
+        });
+        
+        boxFiltriAttivi.appendChild(tag);
     }
 }
 
