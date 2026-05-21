@@ -197,6 +197,7 @@ button {
     text-align: left;   
 }
 
+/* 1. Sfondo oscurato (Resta com'è) */
 .finestra-ricetta {
     position: fixed;
     top: 0;
@@ -217,20 +218,33 @@ button {
 .contenuto-finestra {
     background-color: #0a241f;
     border: 1px solid #b89a5a;
-    padding: 24px;
-    border-radius: 8px;
+    padding: 24px; 
+    border-radius: 12px;
     width: 90%;
-    max-width: 500px;
+    max-width: 950px; 
     position: relative;
-    color: #e6dccf
+    color: #e6dccf;
+    display: flex;    
+    gap: 30px;        
+    align-items: stretch;
 }
 
 .contenuto-finestra img {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    width: 40%;        
+    max-height: 500px;   
+    object-fit: contain; 
+    border-radius: 8px;  
+    margin-bottom: 0;    
+}
+
+.info-cocktail {
+    flex: 1;            
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;    
+    max-height: 500px;   
+    padding-right: 10px; 
 }
 
 .contenuto-finestra button {
@@ -242,4 +256,5 @@ button {
     font-size: 1.5rem;
     color: #c9aa5f;
     cursor: pointer;
+    z-index: 10;
 }
