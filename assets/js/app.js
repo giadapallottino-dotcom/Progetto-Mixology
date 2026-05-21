@@ -148,6 +148,32 @@ btnAnalcolici.addEventListener('click', () => {
     filtraCocktails();
 });
 
+// Evento che accende/spegne il bottone alcolici
+btnAlcolici.addEventListener('click', () => {
+    if (statoFiltri.alcolico === true) {
+        statoFiltri.alcolico = null;
+        btnAlcolici.classList.remove('attivo');
+    } else {
+        statoFiltri.alcolico = true;
+        btnAlcolici.classList.add('attivo');
+        btnAnalcolici.classList.remove('attivo'); 
+    }
+    filtraCocktails();
+});
+
+// Evento che accende/spegne il bottone analcolici
+btnAnalcolici.addEventListener('click', () => {
+    if (statoFiltri.alcolico === false) {
+        statoFiltri.alcolico = null;
+        btnAnalcolici.classList.remove('attivo');
+    } else {
+        statoFiltri.alcolico = false;
+        btnAnalcolici.classList.add('attivo');
+        btnAlcolici.classList.remove('attivo'); 
+    }
+    filtraCocktails();
+});
+
 // Funzione che mostra gli ingredienti selezionati e permette di rimuoverli
 function aggiornaGraficaFiltri() {
     boxFiltriAttivi.innerHTML = ""; 
