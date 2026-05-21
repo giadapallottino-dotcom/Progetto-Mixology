@@ -95,6 +95,22 @@ function filtraCocktails() {
             check = false;
         }
 
+        if (statoFiltri.ingredienti.length > 0) {
+            for (let ingredienteCercato of statoFiltri.ingredienti) {
+                let trovato = false;
+ 
+                for (let ingredienteCocktail of cocktail.ingredienti) {
+                    if (ingredienteCocktail.toLowerCase().includes(ingredienteCercato.toLowerCase())) {
+                        trovato = true;
+                    }
+                }
+                
+                if (trovato === false){
+                    check = false;
+                }
+            }
+        }
+
         if(check === true){
             risultati.push(cocktail);
         }
@@ -132,6 +148,24 @@ btnAnalcolici.addEventListener('click', () => {
     filtraCocktails();
 });
 
+// Funzione che mostra gli ingredienti selezionati
+function aggiornaGraficaFiltri() {
+    boxFiltriAttivi.innerHTML = ""; 
+    for (let ingrediente of statoFiltri.ingredienti) {
+        boxFiltriAttivi.innerHTML += `<span class="tag-ingrediente">${ingrediente}</span>`;
+    }
+}
 
+btnAggiungiIngrediente.addEventListener('click', () => {
+    let parolaScritta = inputIngrediente.value; 
+
+    if (parolaScritta !== "") {
+        statoFiltri.ingredienti.push(parolaScritta);
+        inputIngrediente.value = "";
+
+        aggiornaGraficaFiltri();
+        filtraCocktails();
+    }
+});
 
 filtraCocktails();
