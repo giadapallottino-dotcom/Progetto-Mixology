@@ -136,18 +136,6 @@ selectGusto.addEventListener('change', () => {
     filtraCocktails();
 });
 
-// Evento che filtra gli alcolici
-btnAlcolici.addEventListener('click', () => {
-    statoFiltri.alcolico = true;
-    filtraCocktails();
-});
-
-// Evento che filtra gli analcolici
-btnAnalcolici.addEventListener('click', () => {
-    statoFiltri.alcolico = false;
-    filtraCocktails();
-});
-
 // Evento che accende/spegne il bottone alcolici
 btnAlcolici.addEventListener('click', () => {
     if (statoFiltri.alcolico === true) {
@@ -220,6 +208,9 @@ btnPulisci.addEventListener('click', () => {
     inputIngrediente.value = "";
     selectDifficolta.value = "";
     selectGusto.value = "";
+
+    btnAlcolici.classList.remove('attivo');
+    btnAnalcolici.classList.remove('attivo');
 
     aggiornaGraficaFiltri();
     filtraCocktails();
