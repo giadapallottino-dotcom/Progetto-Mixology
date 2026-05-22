@@ -85,6 +85,10 @@ button {
     overflow-y: auto;
 }
 
+.apri-filtri, .chiudi-filtri {
+    display: none;
+}
+
 .box-filtri {
     display: flex;
     flex-direction: column; 
@@ -324,4 +328,107 @@ button {
     color: #c9aa5f;
     cursor: pointer;
     z-index: 10;
+}
+
+@media screen and (max-width: 768px) {
+.apri-filtri {
+        display: block;
+        background: transparent;                
+        border: 1px solid #c9aa5f;              
+        color: #c9aa5f;                       
+        padding: 8px 16px;                    
+        border-radius: 20px;                   
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;          
+        letter-spacing: 1px;                           
+    }
+
+    .header { 
+        padding: 0 20px; 
+    }
+
+    .logo span { 
+        display: none; 
+    } 
+
+    .cerca-cocktail { 
+        width: 45%; 
+        max-width: 180px; 
+        padding: 8px 16px; 
+    }
+    
+    .sidebar { 
+        position: fixed;
+        top: 0;
+        left: -100%; /* Nasconde il pannello a sinistra */
+        width: 100%; 
+        min-width: 0; 
+        height: 100vh; 
+        z-index: 1500;
+        transition: left 0.4s ease;
+        border-right: none;
+    }
+    
+    .sidebar.sidebar-aperta { 
+        left: 0; 
+    }
+
+    .chiudi-filtri {
+        display: block;
+        background: transparent;
+        border: 1px solid rgba(201, 170, 95, 0.4);
+        color: #c9aa5f;
+        padding: 10px 18px;
+        border-radius: 20px;
+        align-self: flex-end;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .griglia-cocktail {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 16px;
+    }
+
+    .cerca-ingrediente, .seleziona-difficolta, .seleziona-gusto,
+    .bottone-alcolici, .bottone-analcolici, .pulisci-filtri {
+        padding: 12px 16px; 
+    }
+
+    .main-content { 
+        padding: 25px 20px; 
+    }
+
+    .contenuto-finestra { 
+        flex-direction: column; 
+        height: 100%; 
+        max-height: 100vh; 
+        width: 100%; 
+        border-radius: 0; 
+        padding: 60px 20px 20px 20px; 
+        overflow-y: auto; 
+        border: none;
+    }
+
+    .contenuto-finestra img { 
+        width: 80%;
+        height: auto;         
+        aspect-ratio: 4 / 5;  
+        object-fit: cover;    
+        margin: 0 auto;       
+        display: block;       
+        margin-bottom: 20px
+    }
+
+    .info-cocktail { 
+        overflow-y: visible; 
+    }
+
+    .info-cocktail li { 
+        flex: 100%; 
+    } 
 }

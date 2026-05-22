@@ -15,11 +15,14 @@
             <span>Mixology Lounge</span>
         </a>
         <input type="text" id="cerca-cocktail" class="cerca-cocktail" placeholder="Cerca cocktail...">
+        <button id="apri-filtri" class="apri-filtri">Filtra</button>
     </header>
 
     <div class="main-layout">
 
-        <aside class="sidebar">
+        <aside id="sidebar" class="sidebar">
+
+            <button id="chiudi-filtri" class="chiudi-filtri">✕</button>
 
             <div class="box-ingrediente-flex">
                 <label class="filter-label">Cerca ingrediente</label>
@@ -80,7 +83,7 @@
     
     <div id="finestra-ricetta" class="finestra-ricetta">
         <div id="contenuto-finestra" class="contenuto-finestra">
-            <button id="chiudi-finestra">x</button>
+            <button id="chiudi-finestra">✕</button>
             <img id="foto-cocktail" src="" alt="">
             <div id="info-cocktail" class="info-cocktail">
                 <h2 id="titolo-cocktail"></h2>

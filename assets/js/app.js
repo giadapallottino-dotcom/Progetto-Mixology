@@ -226,3 +226,16 @@ btnPulisci.addEventListener('click', () => {
 
 aggiornaGraficaFiltri();
 filtraCocktails();
+
+// Per mobile
+const btnApriFiltri  = document.getElementById('apri-filtri');
+const btnChiudiFiltri = document.getElementById('chiudi-filtri');
+const sidebarPannello = document.getElementById('sidebar');
+
+btnApriFiltri.addEventListener('click', () => {
+    sidebarPannello.classList.add('sidebar-aperta');
+});
+
+btnChiudiFiltri.addEventListener('click', () => {
+    sidebarPannello.classList.remove('sidebar-aperta');
+});
