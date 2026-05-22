@@ -47,7 +47,7 @@ button {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .logo img {
@@ -117,8 +117,12 @@ button {
 .filter-label {
     display: block;
     color: #c9aa5f;
-    margin-bottom: 6px;
-    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-family: 'Monserrat', Helvetica, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
 }
 
 .cerca-ingrediente, 
@@ -166,6 +170,15 @@ button {
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     gap: 24px;
     margin-top: 30px;
+}
+
+.main-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #c9aa5f;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
 }
 
 .card-cocktail {
@@ -224,7 +237,7 @@ button {
     border-radius: 12px;
     width: 90%;
     max-width: 950px; 
-    height: 480px;
+    height: 490px;
     position: relative;
     color: #e6dccf;
     display: flex;    
@@ -261,12 +274,14 @@ button {
 
 .info-cocktail h3 {
     width: 100%;
-    margin: 10px 0 6px 0;
+    margin: 15px 0 6px 0;
     font-family: 'Montserrat', Helvetica, sans-serif; 
     font-weight: 700;
-    font-size: 0.85rem; 
+    font-size: 1rem; 
     text-transform: uppercase; 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    border-bottom: 1px solid rgba(201, 170, 95, 0.3);
+    padding-bottom: 4px;
 }
 
 .info-cocktail ul + h3 {
