@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('playfair-display/PlayfairDisplay-Regular.woff2') format('woff2'),
+         url('playfair-display/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('playfair-display/PlayfairDisplay-Bold.woff2') format('woff2'),
+         url('playfair-display/PlayfairDisplay-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('playfair-display/Roboto-Regular.woff2') format('woff2'),
+         url('playfair-display/Roboto-Regular.woff') format('woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('playfair-display/Roboto-Bold.woff2') format('woff2'),
+         url('playfair-display/Roboto-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('playfair-display/Montserrat-Regular.woff2') format('woff2'),
+         url('playfair-display/Montserrat-Regular.woff') format('woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('playfair-display/Montserrat-Bold.woff2') format('woff2'),
+         url('playfair-display/Montserrat-Bold.woff') format('woff');
+    font-weight: 700;
+}
