@@ -166,6 +166,14 @@ btnAnalcolici.addEventListener('click', () => {
 function aggiornaGraficaFiltri() {
     boxFiltriAttivi.innerHTML = ""; 
 
+    if (statoFiltri.ingredienti.length === 0) {
+        const messaggioVuoto = document.createElement('span');
+        messaggioVuoto.className = "nessun-filtro-testo"; 
+        messaggioVuoto.textContent = "Nessun ingredente aggiunto";
+        boxFiltriAttivi.appendChild(messaggioVuoto);
+        return; 
+    }
+
     for (let i = 0; i < statoFiltri.ingredienti.length; i++) {
         let ingrediente = statoFiltri.ingredienti[i];
         
@@ -216,4 +224,5 @@ btnPulisci.addEventListener('click', () => {
     filtraCocktails();
 });
 
+aggiornaGraficaFiltri();
 filtraCocktails();

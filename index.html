@@ -19,11 +19,6 @@
     <div class="main-layout">
 
         <aside class="sidebar">
-    
-            <div class="box-filtri">
-                <div id="filtri-attivi" class="filtri-attivi"></div>
-                <button id="pulisci-filtri" class="pulisci-filtri">Pulisci filtri</button>
-            </div>
 
             <div class="box-ingrediente-flex">
                 <label class="filter-label">Cerca ingrediente</label>
@@ -31,6 +26,10 @@
                     <input type="text" id="cerca-ingrediente" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
                     <button id="aggiungi-ingrediente" class="bottone-piu">+</button>
                 </div>
+            </div>
+
+            <div class="box-filtri">
+                <div id="filtri-attivi" class="filtri-attivi"></div>
             </div>
 
             <div class="box-tipo">
@@ -66,6 +65,9 @@
                     <option value="floreale">Floreale</option>
                 </select>
             </div>
+            
+            <button id="pulisci-filtri" class="pulisci-filtri">Pulisci filtri</button>
+
         </aside>
 
         <main id="contenuto" class="main-content">

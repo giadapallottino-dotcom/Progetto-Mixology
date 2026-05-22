@@ -197,7 +197,6 @@ button {
     text-align: left;   
 }
 
-/* 1. Sfondo oscurato (Resta com'è) */
 .finestra-ricetta {
     position: fixed;
     top: 0;
@@ -231,20 +230,23 @@ button {
 
 .contenuto-finestra img {
     width: 40%;        
-    max-height: 500px;   
+    max-width: 950px; 
+    height: 520px;  
     object-fit: contain; 
     border-radius: 8px;  
-    margin-bottom: 0;    
+    margin-bottom: 0;  
+    display: flex;
+    flex-direction: row;
 }
 
 .info-cocktail {
-    flex: 1;            
+    flex: 1; 
+    height: 100%;           
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow-y: auto;    
-    max-height: 500px;   
-    padding-right: 10px; 
+    align-items: flex-start;
+    overflow-y: auto;     
 }
 
 .contenuto-finestra button {
