@@ -221,7 +221,7 @@ button {
     border-radius: 12px;
     width: 90%;
     max-width: 950px; 
-    height: 520px;
+    height: 480px;
     position: relative;
     color: #e6dccf;
     display: flex;    
@@ -248,36 +248,41 @@ button {
 
 .info-cocktail h2 {
     width: 100%;
-    margin: 0 0 20px 0;
-    padding-bottom: 12px;
+    margin: 0 0 12px 0;
+    padding-bottom: 6px;
     border-bottom: 2px solid #c9aa5f;
 }
 
 .info-cocktail h3 {
     width: 100%;
-    margin: 15px 0 10px 0;
+    margin: 10px 0 6px 0;
+}
+
+.info-cocktail ul + h3 {
+    margin-top: 22px;
 }
 
 .info-cocktail ul {
     width: 100%;
-    margin: 0 0 25px 0;
+    margin: 0 0 8px 0;
     padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 15px;
+    display: flex;
     list-style: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px 15px;
 }
 
 .info-cocktail li {
-    width: 100%;
-    padding: 8px 0;
-    margin-bottom: 4px;
+    flex: calc(33.333% - 14px);
+    padding: 3px 0;
+    box-sizing: border-box;
 }
 
 .info-cocktail p {
     width: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 12px 15px;
     border: 1px solid #c9aa5f;
     border-radius: 8px;
     box-sizing: border-box;
