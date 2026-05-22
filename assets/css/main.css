@@ -217,26 +217,23 @@ button {
 .contenuto-finestra {
     background-color: #0a241f;
     border: 1px solid #b89a5a;
-    padding: 24px; 
+    padding: 30px; 
     border-radius: 12px;
     width: 90%;
     max-width: 950px; 
+    height: 520px;
     position: relative;
     color: #e6dccf;
     display: flex;    
-    gap: 30px;        
-    align-items: stretch;
+    gap: 40px;        
+    align-items: border-box;
 }
 
-.contenuto-finestra img {
-    width: 40%;        
-    max-width: 950px; 
-    height: 520px;  
-    object-fit: contain; 
+.contenuto-finestra img {       
+    height: 100%; 
+    aspect-ratio: 4 / 5; 
+    object-fit: cover; 
     border-radius: 8px;  
-    margin-bottom: 0;  
-    display: flex;
-    flex-direction: row;
 }
 
 .info-cocktail {
@@ -247,6 +244,43 @@ button {
     justify-content: flex-start;
     align-items: flex-start;
     overflow-y: auto;     
+}
+
+.info-cocktail h2 {
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #c9aa5f;
+}
+
+.info-cocktail h3 {
+    width: 100%;
+    margin: 15px 0 10px 0;
+}
+
+.info-cocktail ul {
+    width: 100%;
+    margin: 0 0 25px 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
+    list-style: none;
+}
+
+.info-cocktail li {
+    width: 100%;
+    padding: 8px 0;
+    margin-bottom: 4px;
+}
+
+.info-cocktail p {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #c9aa5f;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .contenuto-finestra button {
