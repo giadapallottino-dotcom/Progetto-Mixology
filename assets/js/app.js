@@ -113,13 +113,15 @@ function filtraCocktails() {
                 let trovato = false;
  
                 for (let ingredienteCocktail of cocktail.ingredienti) {
-                    if (ingredienteCocktail.toLowerCase().includes(ingredienteCercato.toLowerCase())) {
+                    if (ingredienteCocktail.toLowerCase() === ingredienteCercato.toLowerCase()) {
                         trovato = true;
+                        break;
                     }
                 }
                 
                 if (trovato === false){
                     check = false;
+                    break;
                 }
             }
         }
@@ -213,7 +215,7 @@ btnAggiungiIngrediente.addEventListener('click', () => {
         
         let parolaMinuscola = parolaScritta.toLowerCase();
 
-        if (statoFiltri.ingredienti.map(i => i.toLowerCase()).includes(parolaMinuscola)) {
+        if (statoFiltri.ingredienti.some(i => i.toLowerCase()) === parolaMinuscola) {
             alert("Hai già aggiunto questo ingrediente!");
             inputIngrediente.value = ""; 
             return; 
