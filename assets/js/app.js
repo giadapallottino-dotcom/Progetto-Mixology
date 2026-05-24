@@ -45,7 +45,7 @@ function mostraCocktail(lista) {
         card.id = cocktail.id;
         card.className = "card-cocktail";
         card.innerHTML = `
-            <img src="${cocktail.immagine}" alt="${cocktail.nome}"">
+            <img src="${cocktail.immagine}" alt="${cocktail.nome}" width="400" height="500" loading="lazy">
             <h3>${cocktail.nome}</h3>
         `;
 

@@ -7,6 +7,7 @@
     <meta name="description" content="Esplora il database di Mixology Lounge. Trova le ricette dei tuoi cocktail preferiti, filtra per ingredienti, gusto o difficoltà e diventa un barman perfetto.">
     <link rel="stylesheet" href="assets/fonts/PlayfairDisplay/stylesheets.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
             <button id="chiudi-filtri" class="chiudi-filtri">✕</button>
 
             <div class="box-ingrediente-flex">
-                <label class="filter-label">Cerca ingrediente</label>
+                <label for="cerca-ingrediente" class="filter-label">Cerca ingrediente</label>
                 <div class="input-piu-container">
                     <input type="text" id="cerca-ingrediente" class="cerca-ingrediente" placeholder="es. lime, gin, menta...">
                     <button id="aggiungi-ingrediente" class="bottone-piu">+</button>
@@ -46,7 +47,7 @@
             </div>
 
             <div class="box-difficolta">
-                <label class="filter-label">Difficoltà</label>
+                <label for="seleziona-difficolta" class="filter-label">Difficoltà</label>
                 <select id="seleziona-difficolta" class="seleziona-difficolta">
                     <option value="">Tutte</option>
                     <option value="Facile">Facile</option>
@@ -56,7 +57,7 @@
             </div>
 
             <div class="box-gusto">
-                <label class="filter-label">Gusto</label>
+                <label for="seleziona-gusto" class="filter-label">Gusto</label>
                 <select id="seleziona-gusto" class="seleziona-gusto">
                     <option value="">Tutti</option>
                     <option value="secco">Secco</option>
