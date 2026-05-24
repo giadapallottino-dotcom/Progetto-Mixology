@@ -22,6 +22,10 @@ const titoloModale = document.getElementById('titolo-cocktail');
 const ingredientiModale = document.getElementById('lista-ingredienti');
 const testoModale = document.getElementById('testo-preparazione');
 
+// Variabili per gestire la navigazione con le frecce
+let cocktailFiltratiGlobali = []; 
+let indiceCocktailCorrente = 0;
+
 // Filtri applicati
 let statoFiltri = {
     nome: "",           
@@ -31,17 +35,43 @@ let statoFiltri = {
     gusto: ""           
 };
 
-// Funzione per mostrare le card con i cocktail
+
+function apriFinestraRicetta(cocktail) {
+    imgModale.src = cocktail.immagine;
+    imgModale.alt = `Fotografia del cocktail ${cocktail.nome}`; 
+    titoloModale.textContent = cocktail.nome;
+    testoModale.textContent = cocktail.ricetta;
+    document.getElementById('difficolta-cocktail').textContent = cocktail.difficolta;
+    document.getElementById('gusto-cocktail').textContent = cocktail.gusto;
+
+    const tipoBadge = document.getElementById('tipo-cocktail');
+    if (cocktail.alcolico === true) {
+        tipoBadge.textContent = "Alcolico";
+        tipoBadge.parentElement.className = "info-selezione badge-alcolico";
+    } else {
+        tipoBadge.textContent = "Analcolico";
+        tipoBadge.parentElement.className = "info-selezione badge-analcolico";
+    }
+
+    const listaIngredienti = document.getElementById('lista-ingredienti');  
+    listaIngredienti.innerHTML = "";
+    for (let ingrediente of cocktail.ingredienti) {
+        listaIngredienti.innerHTML += `<li>${ingrediente}</li>`;
+    }
+    
+    modale.classList.add('mostra-finestra');
+}
+
 function mostraCocktail(lista) {
     griglia.innerHTML = "";
 
     if (lista.length === 0) {
-        griglia.innerHTML = '<p id="nessun-risultato">Nessun cocktail trovato</p>'; //Mostra il messaggio se non è stato trovato nessun cocktail
+        griglia.innerHTML = '<p id="nessun-risultato">Nessun cocktail trovato</p>';
         return;
     }
 
     for (let cocktail of lista) {
-        const card = document.createElement('div'); //Creazione delle card per ogni elemento della lista
+        const card = document.createElement('div');
         card.id = cocktail.id;
         card.className = "card-cocktail";
         card.innerHTML = `
@@ -50,75 +80,54 @@ function mostraCocktail(lista) {
         `;
 
         card.addEventListener('click', () => {
-            imgModale.src = cocktail.immagine;
-            imgModale.alt = `Fotografia del cocktail ${cocktail.nome}`; 
-            titoloModale.textContent = cocktail.nome;
-            testoModale.textContent = cocktail.ricetta;
-            document.getElementById('difficolta-cocktail').textContent = cocktail.difficolta;
-            document.getElementById('gusto-cocktail').textContent = cocktail.gusto;
-
-            const tipoBadge = document.getElementById('tipo-cocktail');
-                if (cocktail.alcolico === true) {
-                    tipoBadge.textContent = "Alcolico";
-
-                    tipoBadge.parentElement.className = "info-selezione badge-alcolico";
-                } else {
-                    tipoBadge.textContent = "Analcolico";
-                    tipoBadge.parentElement.className = "info-selezione badge-analcolico";
-                }
-            
-            const listaIngredienti = document.getElementById('lista-ingredienti');  
-            listaIngredienti.innerHTML = "";
-            for (let ingrediente of cocktail.ingredienti) {
-                listaIngredienti.innerHTML += `<li>${ingrediente}</li>`;
-            }
-            modale.classList.add('mostra-finestra');
+            indiceCocktailCorrente = cocktailFiltratiGlobali.indexOf(cocktail);
+            apriFinestraRicetta(cocktail);
         });
-        griglia.appendChild(card); // Aggiunge la card alla griglia
+        
+        griglia.appendChild(card);
     }
 }
 
-document.getElementById('chiudi-finestra').addEventListener('click', () => {
+
+btnChiudiModale.addEventListener('click', () => {
     modale.classList.remove('mostra-finestra'); 
 });
 
-// Funzione che filtra i cocktails
+document.getElementById('successivo-cocktail').addEventListener('click', () => {
+    if (cocktailFiltratiGlobali.length <= 1) return; 
+    indiceCocktailCorrente = (indiceCocktailCorrente + 1) % cocktailFiltratiGlobali.length; 
+    apriFinestraRicetta(cocktailFiltratiGlobali[indiceCocktailCorrente]);
+});
+
+document.getElementById('precedente-cocktail').addEventListener('click', () => {
+    if (cocktailFiltratiGlobali.length <= 1) return;
+    indiceCocktailCorrente = (indiceCocktailCorrente - 1 + cocktailFiltratiGlobali.length) % cocktailFiltratiGlobali.length;
+    apriFinestraRicetta(cocktailFiltratiGlobali[indiceCocktailCorrente]);
+});
+
+
 function filtraCocktails() {
     let risultati = [];
 
     for (let cocktail of cocktailsDatabase) {
-
         let check = true;
         let nomeCocktail = cocktail.nome.toLowerCase();
         let testoCercato = statoFiltri.nome.toLowerCase();
 
-        if (!nomeCocktail.includes(testoCercato)) {
-            check = false;
-        }
-
-        if (statoFiltri.difficolta !== "" && cocktail.difficolta !== statoFiltri.difficolta) {
-            check = false;
-        }
-
-        if (statoFiltri.gusto !== "" && cocktail.gusto !== statoFiltri.gusto) {
-            check = false;
-        }
-
-        if (statoFiltri.alcolico !== null && cocktail.alcolico !== statoFiltri.alcolico) {
-            check = false;
-        }
+        if (!nomeCocktail.includes(testoCercato)) check = false;
+        if (statoFiltri.difficolta !== "" && cocktail.difficolta !== statoFiltri.difficolta) check = false;
+        if (statoFiltri.gusto !== "" && cocktail.gusto !== statoFiltri.gusto) check = false;
+        if (statoFiltri.alcolico !== null && cocktail.alcolico !== statoFiltri.alcolico) check = false;
 
         if (statoFiltri.ingredienti.length > 0) {
             for (let ingredienteCercato of statoFiltri.ingredienti) {
                 let trovato = false;
- 
                 for (let ingredienteCocktail of cocktail.ingredienti) {
                     if (ingredienteCocktail.toLowerCase() === ingredienteCercato.toLowerCase()) {
                         trovato = true;
                         break;
                     }
                 }
-                
                 if (trovato === false){
                     check = false;
                     break;
@@ -130,6 +139,9 @@ function filtraCocktails() {
             risultati.push(cocktail);
         }
     }
+    
+    cocktailFiltratiGlobali = risultati; 
+    
     mostraCocktail(risultati);
 }
 
@@ -184,7 +196,7 @@ function aggiornaGraficaFiltri() {
     if (statoFiltri.ingredienti.length === 0) {
         const messaggioVuoto = document.createElement('span');
         messaggioVuoto.className = "nessun-filtro-testo"; 
-        messaggioVuoto.textContent = "Nessun ingredente aggiunto";
+        messaggioVuoto.textContent = "Nessun ingrediente aggiunto";
         boxFiltriAttivi.appendChild(messaggioVuoto);
         return; 
     }
@@ -196,8 +208,7 @@ function aggiornaGraficaFiltri() {
         tag.className = "tag-ingrediente"; 
         tag.innerHTML = `${ingrediente} <span class="rimuovi-x">✕</span>`;    
         tag.addEventListener('click', () => {
-            statoFiltri.ingredienti.splice(i, 1); // Rimuove dall'array l'ingrediente cliccato (1 elemento alla posizione 'i')
-            
+            statoFiltri.ingredienti.splice(i, 1); 
             aggiornaGraficaFiltri();
             filtraCocktails();
         });
@@ -205,17 +216,16 @@ function aggiornaGraficaFiltri() {
         boxFiltriAttivi.appendChild(tag);
     }
 }
-5
+
 // Evento che filtra per ingredienti
 btnAggiungiIngrediente.addEventListener('click', () => {
-    
     let parolaScritta = inputIngrediente.value; 
 
     if (parolaScritta !== "") {
-        
         let parolaMinuscola = parolaScritta.toLowerCase();
 
-        if (statoFiltri.ingredienti.some(i => i.toLowerCase()) === parolaMinuscola) {
+        // Fix logic check to match existing tags properly
+        if (statoFiltri.ingredienti.some(i => i.toLowerCase() === parolaMinuscola)) {
             alert("Hai già aggiunto questo ingrediente!");
             inputIngrediente.value = ""; 
             return; 
@@ -249,13 +259,14 @@ btnPulisci.addEventListener('click', () => {
     filtraCocktails();
 });
 
+// Inizializzazione pagina
 aggiornaGraficaFiltri();
 filtraCocktails();
 
-// Per mobile
 const btnApriFiltri  = document.getElementById('apri-filtri');
 const btnChiudiFiltri = document.getElementById('chiudi-filtri');
 const sidebarPannello = document.getElementById('sidebar');
+const btnMostraRisultati = document.getElementById('mostra-risultati');
 
 btnApriFiltri.addEventListener('click', () => {
     sidebarPannello.classList.add('sidebar-aperta');
@@ -264,8 +275,6 @@ btnApriFiltri.addEventListener('click', () => {
 btnChiudiFiltri.addEventListener('click', () => {
     sidebarPannello.classList.remove('sidebar-aperta');
 });
-
-const btnMostraRisultati = document.getElementById('mostra-risultati');
 
 btnMostraRisultati.addEventListener('click', () => {
     sidebarPannello.classList.remove('sidebar-aperta');
