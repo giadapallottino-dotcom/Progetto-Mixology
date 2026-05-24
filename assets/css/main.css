@@ -272,6 +272,12 @@ select option {
     display: none;
 }
 
+.main-layout {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
 .main-content {
     flex: 1;
     padding: 40px 60px;
@@ -520,7 +526,41 @@ select option {
     transform: scale(1.15);
 }
 
-/* MEDIA QUERIES */
+.footer-sito {
+    background: linear-gradient(180deg, #0a241f 0%, #030f0d 100%);
+    border-top: 1px solid rgba(201, 170, 95, 0.2);
+    padding: 30px 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.footer-minimo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 10px;
+    font-size: 0.85rem;
+}
+
+.logo-footer {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #c9aa5f;
+}
+
+.separatore-footer {
+    color: rgba(201, 170, 95, 0.3);
+}
+
+.footer-copyright {
+    color: rgba(230, 220, 207, 0.5);
+}
+
+
+
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .griglia-cocktail {
         grid-template-columns: 1fr 1fr !important;
