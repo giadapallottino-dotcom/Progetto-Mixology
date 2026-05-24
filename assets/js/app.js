@@ -45,8 +45,8 @@ function mostraCocktail(lista) {
         card.id = cocktail.id;
         card.className = "card-cocktail";
         card.innerHTML = `
-            <img src="${cocktail.immagine}" alt="${cocktail.nome}" width="400" height="500" loading="lazy">
-            <h3>${cocktail.nome}</h3>
+        <img src="${cocktail.immagine}" alt="${cocktail.nome}" width="400" height="500" loading="lazy">
+        <h3>${cocktail.nome}</h3>
         `;
 
         card.addEventListener('click', () => {
@@ -180,7 +180,7 @@ function aggiornaGraficaFiltri() {
         
         const tag = document.createElement('span');
         tag.className = "tag-ingrediente"; 
-        tag.textContent = ingrediente;     
+        tag.innerHTML = `${ingrediente} <span class="rimuovi-x">✕</span>`;    
         tag.addEventListener('click', () => {
             statoFiltri.ingredienti.splice(i, 1); // Rimuove dall'array l'ingrediente cliccato (1 elemento alla posizione 'i')
             
@@ -238,5 +238,11 @@ btnApriFiltri.addEventListener('click', () => {
 });
 
 btnChiudiFiltri.addEventListener('click', () => {
+    sidebarPannello.classList.remove('sidebar-aperta');
+});
+
+const btnMostraRisultati = document.getElementById('mostra-risultati');
+
+btnMostraRisultati.addEventListener('click', () => {
     sidebarPannello.classList.remove('sidebar-aperta');
 });

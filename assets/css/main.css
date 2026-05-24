@@ -124,14 +124,25 @@ button {
     color: #e6dccf;           
     padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.75rem; 
+    font-size: 0.85rem; 
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tag-ingrediente .rimuovi-x {
+    margin-left: 8px;
+    font-weight: bold;
+    color: rgba(230, 220, 207, 0.5); 
+    transition: color 0.2 ease;
 }
 
 .tag-ingrediente:hover {
     background-color: #3b1c1c; 
     border-color: #ff6b6b;
+}
+
+.tag-ingrediente:hover .rimuovi-x {
+    color: #ff6b6b;
 }
 
 .filter-label {
@@ -239,6 +250,10 @@ button {
     transform: translateY(0);
 }
 
+.mostra-risultati-mobile {
+    display: none;
+}
+
 .main-content {
     flex: 1;
     padding: 40px 60px;
@@ -247,7 +262,7 @@ button {
 
 .griglia-cocktail {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
     gap: 24px;
     margin-top: 30px;
 }
@@ -279,9 +294,14 @@ button {
 }
 
 .card-cocktail img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card-cocktail:hover img {
+    transform: scale(1.04); 
 }
 
 .card-cocktail h3 {
@@ -421,6 +441,13 @@ button {
     z-index: 10;
 }
 
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .griglia-cocktail {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px;
+    }
+}
+
 @media screen and (max-width: 768px) {
 .apri-filtri {
         display: block; 
@@ -506,7 +533,7 @@ button {
         max-height: 100vh; 
         width: 100%; 
         border-radius: 0; 
-        padding: 60px 20px 20px 20px; 
+        padding: 60px 20px 20px 20px !important; 
         overflow-y: auto; 
         border: none;
     }
@@ -528,4 +555,55 @@ button {
     .info-cocktail li { 
         flex: 100%; 
     } 
+
+    .info-cocktail p {
+        margin-bottom: 20px !important;
+    }
+
+    .filter-label {
+        font-size: 0.95rem; 
+        margin-bottom: 10px;
+    }
+
+    .cerca-cocktail,
+    .cerca-ingrediente, 
+    .seleziona-difficolta, 
+    .seleziona-gusto,
+    .bottone-alcolici,
+    .bottone-analcolici {
+        font-size: 16px !important; 
+    }
+
+    .card-cocktail h3 {
+        font-size: 1.3rem; 
+    }
+
+    .mostra-risultati-mobile { 
+        display: block !important; 
+        width: 100%;
+        background: #c9aa5f; 
+        color: #0a241f; 
+        border: none;
+        padding: 14px 16px;
+        border-radius: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 15px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .mostra-risultati-mobile:active {
+        transform: scale(0.98); 
+        background-color: #e6dccf;
+    }
+    
+    .pulisci-filtri {
+        margin-top: 15px;
+    }    
+
+
 }
