@@ -206,16 +206,19 @@ function aggiornaGraficaFiltri() {
 5
 // Evento che filtra per ingredienti
 btnAggiungiIngrediente.addEventListener('click', () => {
+    
     let parolaScritta = inputIngrediente.value; 
 
     if (parolaScritta !== "") {
+        
+        let parolaMinuscola = parolaScritta.toLowerCase();
 
         if (statoFiltri.ingredienti.map(i => i.toLowerCase()).includes(parolaMinuscola)) {
             alert("Hai già aggiunto questo ingrediente!");
             inputIngrediente.value = ""; 
             return; 
         }
-        
+
         statoFiltri.ingredienti.push(parolaScritta);
         inputIngrediente.value = "";
 
