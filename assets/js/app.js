@@ -50,9 +50,10 @@ function mostraCocktail(lista) {
         `;
 
         card.addEventListener('click', () => {
-            document.getElementById('foto-cocktail').src = cocktail.immagine;
-            document.getElementById('titolo-cocktail').textContent = cocktail.nome;
-            document.getElementById('testo-preparazione').textContent = cocktail.ricetta;
+            imgModale.src = cocktail.immagine;
+            imgModale.alt = `Fotografia del cocktail ${cocktail.nome}`; 
+            titoloModale.textContent = cocktail.nome;
+            testoModale.textContent = cocktail.ricetta;
             
             const listaIngredienti = document.getElementById('lista-ingredienti');  
             listaIngredienti.innerHTML = "";
