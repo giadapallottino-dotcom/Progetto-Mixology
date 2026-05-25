@@ -69,10 +69,10 @@ button {
     letter-spacing: 1px;
     font-size: 1.6rem;
     text-decoration: none;
-    background: linear-gradient(180deg, #f9e3aa 0%, #d9b86c 48%, #8e6e2f 50%, #c9aa5f 52%, #b89a5a 100%);
+    background: linear-gradient(180deg, #f9e3aa 0%, #c9aa5f 50%, #8e6e2f 100%);
     background-clip: text;
     color: transparent; 
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
 }
 
 .logo img {
