@@ -106,6 +106,21 @@ document.getElementById('precedente-cocktail').addEventListener('click', () => {
 });
 
 
+
+function normalizzaIngrediente(ingrediente) {
+    const search = ingrediente.trim().toLowerCase();
+    
+    let mapping = dizionarioSinonimi.find(item => item.ufficiale.toLowerCase() === search);
+    if (mapping) return mapping.ufficiale.toLowerCase();
+    
+    mapping = dizionarioSinonimi.find(item =>
+        item.sinonimi.some(sinonimo => sinonimo.toLowerCase() === search)
+    );
+    if (mapping) return mapping.ufficiale.toLowerCase();
+    
+    return search;
+}
+
 function filtraCocktails() {
     let risultati = [];
 
@@ -122,26 +137,30 @@ function filtraCocktails() {
         if (statoFiltri.ingredienti.length > 0) {
             for (let ingredienteCercato of statoFiltri.ingredienti) {
                 let trovato = false;
+                let cercatoNormalizzato = normalizzaIngrediente(ingredienteCercato);
+
                 for (let ingredienteCocktail of cocktail.ingredienti) {
-                    if (ingredienteCocktail.toLowerCase() === ingredienteCercato.toLowerCase()) {
+                    let cocktailNormalizzato = normalizzaIngrediente(ingredienteCocktail);
+                    
+                    if (cocktailNormalizzato === cercatoNormalizzato) {
                         trovato = true;
-                        break;
+                        break; 
                     }
                 }
-                if (trovato === false){
+
+                if (trovato === false) {
                     check = false;
                     break;
                 }
             }
         }
 
-        if(check === true){
+        if (check === true) {
             risultati.push(cocktail);
         }
     }
     
     cocktailFiltratiGlobali = risultati; 
-    
     mostraCocktail(risultati);
 }
 
